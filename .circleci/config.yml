@@ -15,3 +15,8 @@ jobs:
             docker build -t jossydee1/node-app:$version .
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
             docker push jossydee1/node-app:$version
+
+workflows:
+  GitOpsflow:
+    jobs:
+      - build_and_push
